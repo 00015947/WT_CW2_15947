@@ -1,31 +1,9 @@
-// express web app instance
-
-const express = require('express')
-
-// parse request body to json
-
-const body_parser = require('body-parser')
-
-// for File IO
-
-const path = require('path')
-
-// make mock database (raw .json file) available globally in app
-
-global.mock_db = path.join(__dirname, './data/mock_db.json');
-
+const express = require('express');
 const app = express();
+const port = process.env.PORT || 3000;
 
-app.get('/', function(req, res){
+// Middleware and routes setup
 
-return res.json({
-
-message: 'hello world'
-
-})
-
-})
-
-const port = 3000;
-
-app.listen(port, () => console.log(`Server running on port ${port}`))
+app.listen(port, () => {
+  console.log(`Server is running on port ${port}`);
+});

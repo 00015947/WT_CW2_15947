@@ -4,7 +4,15 @@ body
 
 .container.mt-5
 
+.row.d-flex.align-items-center
+
+.col-md-6
+
 h1 List
+
+.col-md-6.text-end
+
+a.btn.btn-success(href='/add', role='button') Add
 
 table.table.table-responsive.table-hover.table-striped.table-dark
 
@@ -28,42 +36,82 @@ th(scope="col") Actions
 
 tbody
 
-tr
+script.
 
-td 1
+document.addEventListener('DOMContentLoaded', function() {
 
-td Example Event Name 1
+axios.get('/api/ticket').then(function(response) {
 
-td 2024-02-17 10:00
+const tickets = response.data;
 
-td Example Venue
+const tableBody = document.querySelector('table tbody');
 
-td +1234567890
+tickets.forEach(t => {
 
-td 42
+const row = document.createElement('tr');
 
-td
+const ticket = t.ticket
 
-button.btn.btn-primary.btn-sm Edit
+row.innerHTML = `
 
-button.btn.btn-danger.btn-sm Delete
+<td>${t.id}</td>
 
-tr
+<td>${ticket.eventName}</td>
 
-td 1
+<td>${ticket.eventDateTime}</td>
 
-td Example Event Name 2
+<td>${ticket.venue}</td>
 
-td 2024-02-17 10:00
+<td>${ticket.contactPhone}</td>
 
-td Example Venue
+<td>${ticket.seat}</td>
 
-td +1234567890
+<td>
 
-td 42
+<button class="btn btn-primary btn-sm" data-id="${t.id}" onclick="window.location.href='/update/${t.id}'">Update</button>
 
-td
+<button class="btn btn-danger btn-sm" data-id="${t.id}">Delete</button>
 
-button.btn.btn-primary.btn-sm Edit
+</td>
 
-button.btn.btn-danger.btn-sm Dele
+`;
+
+tableBody.appendChild(row);
+
+});
+
+})
+
+.catch(function(error) {
+
+console.log(error);
+
+});
+
+// Use event delegation for delete buttons
+
+document.addEventListener('click', function(event) {
+
+if (event.target && event.target.classList.contains('btn-danger')) {
+
+const ticketId = event.target.getAttribute('data-id');
+
+axios.delete(`/api/ticket/${ticketId}`).then(function(response) {
+
+alert('Deleted successfully', response);
+
+location.href = '/'
+
+})
+
+.catch(function(error) {
+
+alert('Error deleting ticket: ' + error);
+
+});
+
+}
+
+});
+
+})

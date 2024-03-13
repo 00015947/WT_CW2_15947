@@ -20,9 +20,9 @@ body('eventDateTime')
 
 .withMessage('Invalid date and time format. Please use "DD/MM/YYYY HH:mm" format.'),
 
-body('venue')
+body('location')
 
-.notEmpty().withMessage('Event venue must not be empty'),
+.notEmpty().withMessage('Event location must not be empty'),
 
 body('contactPhone')
 
@@ -30,9 +30,9 @@ body('contactPhone')
 
 .matches(/^\+998\d{9}$/).withMessage('Invalid phone number format, it must be +998xxxxxxxxx'),
 
-body('seat')
+body('description')
 
-.notEmpty().withMessage('Seat must not be empty'),
+.notEmpty().withMessage('Description must not be empty'),
 
 ];
 
@@ -88,9 +88,9 @@ body('eventDateTime')
 
 .withMessage('Invalid date and time format. Please use "DD/MM/YYYY HH:mm" format.'),
 
-body('venue')
+body('location')
 
-.notEmpty().withMessage('Event venue must not be empty'),
+.notEmpty().withMessage('Event location must not be empty'),
 
 body('contactPhone')
 
@@ -98,9 +98,9 @@ body('contactPhone')
 
 .matches(/^\+998\d{9}$/).withMessage('Invalid phone number format, it must be +998xxxxxxxxx'),
 
-body('seat')
+body('description')
 
-.notEmpty().withMessage('Seat must not be empty'),
+.notEmpty().withMessage('Description must not be empty'),
 
 ];
 

@@ -1,12 +1,12 @@
 [
     {
-        "id": "WLAT",
+        "id": "pGrs",
         "ticket": {
-            "eventName": "Ben Barnes",
-            "eventDateTime": "12/03/2024 22:15",
-            "venue": "12",
-            "contactPhone": "+998901220132",
-            "seat": "1"
+            "eventName": "Charity ",
+            "eventDateTime": "20/06/2024 17:34",
+            "location": "Pittsburg ",
+            "contactPhone": "+998903527163",
+            "description": "Event for charity!"
         }
     }
 ]

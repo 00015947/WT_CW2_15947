@@ -32,7 +32,7 @@ res.json(ticket)
 
 } else {
 
-res.status(404).send('Ticket not found')
+res.status(404).send('Event not found')
 
 }
 
@@ -46,11 +46,11 @@ if (ticket) {
 
 ticket_service.delete(req.params.id)
 
-res.status(204).send('Ticket deleted successfully')
+res.status(204).send('Event deleted successfully')
 
 } else {
 
-res.status(404).send('Ticket not found')
+res.status(404).send('Event not found')
 
 }
 

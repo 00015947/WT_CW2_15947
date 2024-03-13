@@ -1,5 +1,5 @@
 # WT_CW2_15947
-# Web Application for Recipe Sharing Platform
+# Web Application for 
 
 This web application was created to fulfill the requirements of the Web Technology module.
 

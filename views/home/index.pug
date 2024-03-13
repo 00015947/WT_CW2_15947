@@ -4,7 +4,7 @@ body
   .container.mt-5
     .row.d-flex.align-items-center
       .col-md-6
-        h1 List
+        h1 Event Planning Application 
       .col-md-6.text-end
         a.btn.btn-success(href='/add', role='button') Add
 
@@ -14,9 +14,9 @@ body
           th(scope="col") ID
           th(scope="col") Event Name
           th(scope="col") Event DateTime
-          th(scope="col") Venue
+          th(scope="col") Location
           th(scope="col") Contact Phone
-          th(scope="col") Seat
+          th(scope="col") Description
           th(scope="col") Actions
       tbody
 
@@ -34,9 +34,9 @@ body
               <td>${t.id}</td>
               <td>${ticket.eventName}</td>
               <td>${ticket.eventDateTime}</td>
-              <td>${ticket.venue}</td>
+              <td>${ticket.location}</td>
               <td>${ticket.contactPhone}</td>
-              <td>${ticket.seat}</td>
+              <td>${ticket.description}</td>
               <td>
                 <button class="btn btn-primary btn-sm" data-id="${t.id}" onclick="window.location.href='/update/${t.id}'">Update</button>
                 <button class="btn btn-danger btn-sm" data-id="${t.id}">Delete</button>
@@ -50,16 +50,16 @@ body
           console.log(error);
         });
 
-        // Use event delegation for delete buttons
+        // Event for delete buttons
         document.addEventListener('click', function(event) {
           if (event.target && event.target.classList.contains('btn-danger')) {
             const ticketId = event.target.getAttribute('data-id');
             axios.delete(`/api/ticket/${ticketId}`).then(function(response) {
-              alert('Deleted successfully', response);
+              alert('Event deleted successfully', response);
               location.href = '/';
             })
             .catch(function(error) {
-              alert('Error deleting ticket: ' + error);
+              alert('Theres an error deleting the ticket: ' + error);
             });
           }
         });

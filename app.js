@@ -16,8 +16,8 @@ const app = express();
 // Setting the view engine for web routes
 app.set('view engine', 'pug');
 
-app.use('/css', express.static('public/css'));
-app.use('/js', express.static('public/js'));
+app.use('styles.css', express.static('public/styles/styles.css'));
+app.use('/', express.static('public/javascript'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 

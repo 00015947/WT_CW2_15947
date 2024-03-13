@@ -1,16 +1,20 @@
 body {
-    font-family: Arial, sans-serif;
+    font-family: "Gill Sans", sans-serif;
     font-style: bold;
-    margin: 5px;
-    padding: 5px;
-    background-color: #e8d3b3;
+    background-color: #9cc8ea;
+    width: 100%;
+    margin: auto;
 }
 
 h1 {
-    color: #5aee1f;
+    color: #291fee;
     font-style: bold;
     text-align: center;
-    text-emphasis-color: green;
+}
+
+h5 {
+    color: grey;
+    text-align: center;
 }
 
 ul {
